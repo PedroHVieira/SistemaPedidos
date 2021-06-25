@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<form class="" method="POST" th:object="${produto}"
+	th:action="@{/produtos}">
+	<input id="idProdutos" type="hidden" th:field="*{id}"
+		th:value="${produto.id}">
+	<div class="modal-header header-modal">
+		<h4 class="modal-title" id="motalTitulo"></h4>
+		<div class="clearfix"></div>
+	</div>
+	<div class="modal-body">
+		<div class="container p-0">
+			<div class="row">
+				<div class="col-md-8 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Nome*</label> <input id=""
+							type="tel" class="form-control validar" placeholder=""
+							autocomplete="off" th:field="*{nome}" th:value="${produto.nome}"
+							required>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-6 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Valor</label> <input id=""
+							type="number" class="form-control validar" placeholder=""
+							autocomplete="off" th:field="*{valor}"
+							th:value="${produto.valor}" required>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-6 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Ativo</label> <select id=""
+							type="number" class="form-control validar" th:field="*{ativo}"
+							th:value="${produto.ativo}" required>
+							<option value = '1'>Sim</option>
+							<option value = '0'>Não</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</div>
+	</div>
+</form>

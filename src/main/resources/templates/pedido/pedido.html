@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="pt"><head>
+<title>Lista de Pedido</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700'
+	rel='stylesheet' type='text/css'>
+<div th:replace="fragments/imports :: links"></div>
+
+<link th:href="@{/css/navbar/style.css}" rel="stylesheet" />
+
+
+</head>
+<body>
+
+	<section th:replace="fragments/header:: navbar"></section>
+	
+	<div class="col">
+			<main role="main" class="col-md-12 col-lg-12 px-4 pt-3">
+				<div
+					class="main-title d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+					<h1 class="h2">Lista de Pedido</h1>
+					<button type="button" class="btn btn-outline-dark" id="btnModal">Novo</button>
+
+				</div>
+				<div class="container-flex p-0">
+					<div class="" id="resultado"></div>
+				</div>
+
+			</main>
+		</div>
+	<div th:replace="fragments/imports :: scripts"></div>
+	
+	<script type="text/javascript" th:src="@{/js/pedido/pedido.js}"></script>
+	<footer th:replace="fragments/footer :: footer" class="bg-light text-center text-lg-start footer"></footer>
+</body>
+
+<!-- MODAL -->
+<div id="modal" class="modal fade bs-example-modal-lg" tabindex="-1"
+	role="dialog" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content" id="corpoModal"></div>
+	</div>
+</div>
+
+</html>

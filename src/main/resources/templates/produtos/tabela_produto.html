@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<div class="row">
+	<div class="col-xs-12 col-sm-12 overflow-x">
+		<table class="table-striped width-100 display compact"  id="tabela_produtos">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Valor</th>		
+					<th>Ativo</th>		
+					<th>Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${lista}">
+					<td th:text="${item.nome}"></td>
+					<td th:text="${item.valor}"></td>
+					<td th:text="${item.ativo}"></td>
+					<td>
+						<button  class = "btn-transparent"	type="button" title = "Alterar Item">
+							<i th:data-id="${item.id}" class="ico fa fa-edit"	th:onclick="alterarItem(this.getAttribute('data-id'))"></i>
+						</button>&nbsp;&nbsp; 
+						<button type="button"  class = "btn-transparent" title = "Excluir Item">
+							<i th:data-id="${item.id}" class="ico fa fa-trash" th:onclick="deletarItem(this.getAttribute('data-id'))"></i>
+						</button>
+					</td>	
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<th>Nome</th>
+					<th>Valor</th>
+					<th>Ativo</th>	
+					<th>Acao</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</div>

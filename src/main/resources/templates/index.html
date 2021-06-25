@@ -1,0 +1,94 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<title>Home</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700'
+	rel='stylesheet' type='text/css'>
+<div th:replace="fragments/imports :: links"></div>
+
+<link th:href="@{/css/navbar/style.css}" rel="stylesheet" />
+
+
+</head>
+<body>
+
+	<section th:replace="fragments/header:: navbar"></section>
+
+	<!-- MAIN -->
+	<div class="col">
+		<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4 pt-3">
+			<div
+				class="main-title d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+				<h1 class="h2">INFORMAÇÕES DO PROJETO</h1>
+
+			</div>
+
+			<div class="continer">
+				<h2>Pedidos</h2>
+				<p>Esta atividade tem como objetivo, possibilitar que um usuário
+					realize um pedido de produtos.</p>
+				<h3>Pré-Condição (Deverá ser implementada antes dos Pedidos)</h3>
+				<ul>
+					<li>Produto previamente cadastrado e com situação ativo</li>
+					<li>Cliente cadastrado e com situação ativo</li>
+				</ul>
+				<h3>Cenário</h3>
+				<ol>
+					<li>Usuário acessa o sistema e clica no menu Pedidos</li>
+					<li>O sistema exibe os pedidos realizados</li>
+					<li>O usuário clica no Botão Novo</li>
+					<li>O sistema exibe o formulário de pedido</li>
+					<li>O usuário preenche o formulário e clica em Salvar</li>
+					<li>O sistema grava o pedido e exibe a listagem de pedidos</li>					
+				</ol>
+				<br>
+				<h2>Regra de Negócio</h2>
+				<h3>RN01: No formulário de cadastro de Cliente, o formulário deverá possuir os seguintes campos:</h3>
+				<ul>
+					<li>Nome (campo obrigatório)</li>
+					<li>Telefone (campo obrigatório)</li>
+					<li>Data de Nascimento (campo obrigatório)</li>
+				</ul>
+				<h3>RN02: No formulário de cadastro de Produto, o formulário deverá possuir os seguintes campos:</h3>
+				<ul>
+					<li>Nome (campo obrigatório)</li>
+					<li>Valor (campo obrigatório)</li>
+				</ul>
+				<h3>RN03: No cadastro de Pedido:</h3>
+				<ul>
+					<li>Cliente (Irá listar todos os clientes ativos no sistema) (campo obrigatório)</li>
+					<li>Produto (irá listar todos os produtos ativos no sistema) (campo obrigatório)</li>
+					<li>Valor (Exibir o valor do produto selecionado)</li>
+					<li>O pedido poderá possuir um ou mais produtos.</li>
+					<li>O sistema deverá gravar a data e hora da realização do pedido</li>
+					<li>Deverá ser demonstrado o valor total do pedido.</li>
+				</ul>
+				<h3>RN04: Na listagem de pedidos deverá possuir as seguintes informações:</h3>
+				<ul>
+					<li>Número do Pedido</li>
+					<li>Cliente</li>
+					<li>Valor Total</li>
+					<li>Data</li>
+				</ul>
+				<h3>RN05: Na exibição do pedido deverá ser listados todas as informações do pedido.</h3>
+				<h2>Glossário</h2>
+				<p>*RN: Regra de Negócio</p>
+			</div>
+
+
+		</main>
+	</div>
+	<!-- Main Col END -->
+
+	<div th:replace="fragments/imports :: scripts"></div>
+	<footer th:replace="fragments/footer :: footer"
+		class="bg-light text-center text-lg-start footer"></footer>
+</body>
+
+</html>

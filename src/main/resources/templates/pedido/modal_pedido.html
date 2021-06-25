@@ -1,0 +1,94 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<form class="" method="POST" th:object="${pedido}"
+	th:action="@{/pedidos}">
+	<input id="idPedido" type="hidden" th:field="*{id}"
+		th:value="${pedido.id}">
+	<div class="modal-header header-modal">
+		<h4 class="modal-title" id="motalTitulo"></h4>
+		<div class="clearfix"></div>
+	</div>
+	<div class="modal-body">
+		<div class="container p-0">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Cliente*</label> <input th:field="*{cliente.nome}" th:value="${pedido.cliente.nome}"
+							id="cliente" type="tel" class="form-control validar"
+							placeholder="" autocomplete="off" required> 
+							<input class="validar" id="idCliente" type="hidden" th:field="*{cliente.id}" th:value="${pedido.cliente.id}">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Produto*</label> <input
+							id="produto" type="text" class="form-control "
+							placeholder="" autocomplete="off" required> <input
+							id="idProduto" type="hidden"> <input id="valorProd"
+							type="hidden">
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Quantidade*</label> <input
+							id="quantidade" type="number" class="form-control"
+							placeholder="" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1" style="color: transparent;">Botão</label>
+						<button id="addRow" type="button"
+							class="form-control btn btn-info">Adicionar</button>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 overflow-x">
+					<table class="table-striped width-100 display compact"
+						id="tabela_itens_pedido">
+						<thead>
+							<tr>
+								<th>Código</th>
+								<th>Produto</th>
+								<th>Valor Unit</th>
+								<th>Quantidade</th>
+								<th>Valor Total(R$)</th>
+								<th>Ação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="item : ${pedido.itensPedido}">
+								<td th:text="${item.produto.id}"></td>
+								<td th:text="${item.produto.nome}"></td>
+								<td th:text="${item.produto.valor}"></td>
+								<td th:text="${item.quantidade}"></td>
+								<td th:text="${item.valor}"></td>
+								<td><i class="ico fa fa-trash" style = "cursor: pointer" title = "Excluir Item"></i>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th style="text-align: right;">TOTAL PEDIDO:</th>
+								<th style="text-align: center;"></th>
+								<th></th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-primary" id = "btnSalvar">Salvar</button>
+		</div>
+	</div>
+</form>

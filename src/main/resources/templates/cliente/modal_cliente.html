@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<form class="" method="POST" th:object="${cliente}"
+	th:action="@{/clientes}">
+	<input id="idCliente" type="hidden" th:field="*{id}"
+		th:value="${cliente.id}">
+	<div class="modal-header header-modal">
+		<h4 class="modal-title" id="motalTitulo"></h4>
+		<div class="clearfix"></div>
+	</div>
+	<div class="modal-body">
+		<div class="container p-0">
+
+			<div class="row">
+				<div class="col-md-10 col-sm-10 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Nome*</label> <input
+							id="formNome" type="text" class="form-control validar"
+							placeholder="" autocomplete="off" th:field="*{nome}"
+							th:value="${cliente.nome}" required>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-6 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Ativo</label> <select id=""
+							type="number" class="form-control validar" th:field="*{ativo}"
+							th:value="${cliente.ativo}" required>
+							<option value = '1'>Sim</option>
+							<option value = '0'>Não</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Telefone*</label> <input
+							id="formNome" type="tel" class="form-control validar"
+							placeholder="" autocomplete="off" th:field="*{telefone}"
+							th:value="${cliente.telefone}" required>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12 m-0">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Data de Nascimento</label> <input
+							id="formNome" type="date" class="form-control validar"
+							placeholder="" autocomplete="off" th:field="*{dataNascimento}"
+							th:value="${cliente.dataNascimento}" required>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</div>
+	</div>
+</form>
